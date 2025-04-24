@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.devtool.ksp)
+    alias(libs.plugins.kotlin.serlization)
 }
 
 android {
@@ -21,6 +22,18 @@ android {
     }
 
     buildTypes {
+        defaultConfig {
+            buildConfigField(
+                "String",
+                "BASE_URL",
+                "\"https://api.themoviedb.org/3/\""
+            )
+            buildConfigField(
+                "String",
+                "BEARER_TOKEN",
+                "\"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZTNjOTU1MWRlM2NhMTZhMTAwZTkwMmExNjVhODg5NyIsIm5iZiI6MTcyNjQ3MjI1My42NTEsInN1YiI6IjY2ZTdlMDNkOWRmYmJkZjBlNmNmZTU3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cFz_RszqH2MZjkx2ur8IgIH5KLcPm8OLoO0nakE613Q\"\n\""
+            )
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -37,6 +50,7 @@ android {
         jvmTarget = "17"
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
@@ -52,8 +66,28 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.logging)
+
+
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
