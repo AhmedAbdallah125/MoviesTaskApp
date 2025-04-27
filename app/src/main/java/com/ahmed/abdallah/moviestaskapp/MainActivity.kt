@@ -71,7 +71,7 @@ fun MainNavHost(
         ) { backStackEntry ->
             val viewModel = hiltViewModel<DetailsViewModel>()
             val movieId =
-                backStackEntry.arguments?.getString(MainNavigation.Details.id)
+                backStackEntry.arguments?.getString(MainNavigation.Details.movieId)
 
             if (movieId != null) {
                 DetailsScreen(

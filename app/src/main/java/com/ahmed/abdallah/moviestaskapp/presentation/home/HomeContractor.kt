@@ -3,9 +3,9 @@ package com.ahmed.abdallah.moviestaskapp.presentation.home
 import androidx.paging.PagingData
 import com.ahmed.abdallah.moviestaskapp.data.model.response.KeyWord
 import com.ahmed.abdallah.moviestaskapp.data.model.response.Movie
-import com.fawry.deliveryapp.base.presentation.ViewAction
-import com.fawry.deliveryapp.base.presentation.ViewEvent
-import com.fawry.deliveryapp.base.presentation.ViewState
+import com.ahmed.abdallah.moviestaskapp.base.presentation.ViewAction
+import com.ahmed.abdallah.moviestaskapp.base.presentation.ViewEvent
+import com.ahmed.abdallah.moviestaskapp.base.presentation.ViewState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 

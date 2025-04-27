@@ -32,7 +32,6 @@ class MainRemoteSource @Inject constructor(
                 parameter("include_video", false)
                 parameter("language", "en-US")
                 parameter("page", page)
-//                query?.let { parameter("query", query) }
                 parameter("sort_by", "popularity.desc")
             }.body())
         } catch (ex: Exception) {

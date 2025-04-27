@@ -37,5 +37,6 @@ data class Genres(
     var name: String? = null
 )
 
+const val BaseImagePath = "https://image.tmdb.org/t/p/original"
 fun Movie.mapToUI() =
-    this.copy(posterPath = "https://image.tmdb.org/t/p/original".plus(posterPath))
+    this.copy(posterPath = BaseImagePath.plus(posterPath))

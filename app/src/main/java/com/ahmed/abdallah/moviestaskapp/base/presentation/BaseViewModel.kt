@@ -1,6 +1,5 @@
-package com.fawry.deliveryapp.base.presentation
+package com.ahmed.abdallah.moviestaskapp.base.presentation
 
-import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.channels.Channel

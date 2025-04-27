@@ -5,7 +5,7 @@ import com.ahmed.abdallah.moviestaskapp.base.Result
 import com.ahmed.abdallah.moviestaskapp.data.model.response.Movie
 import com.ahmed.abdallah.moviestaskapp.data.model.response.mapToUI
 import com.ahmed.abdallah.moviestaskapp.data.repository.IMovieRepository
-import com.fawry.deliveryapp.base.presentation.BaseViewModel
+import com.ahmed.abdallah.moviestaskapp.base.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -31,9 +31,7 @@ class DetailsViewModel @Inject constructor(
     private fun getMovie(id: String) {
         viewModelScope.launch {
             val movieResult = movieRepository.getMovie(id)
-
             setState { copy(isLoading = false) }
-            setEvent { DetailsContactor.Event.ShowError("movieResult.error") }
 
             when (movieResult) {
                 is Result.Failure -> {
