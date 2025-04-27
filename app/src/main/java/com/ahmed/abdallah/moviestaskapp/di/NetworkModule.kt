@@ -2,6 +2,9 @@ package com.ahmed.abdallah.moviestaskapp.di
 
 import android.util.Log
 import com.ahmed.abdallah.moviestaskapp.BuildConfig
+import com.ahmed.abdallah.moviestaskapp.data.remote.MainRemoteSource
+import com.ahmed.abdallah.moviestaskapp.data.repository.IMovieRepository
+import com.ahmed.abdallah.moviestaskapp.data.repository.MovieRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,10 +30,12 @@ object NetworkModule {
 
     @Provides
     @Singleton
+    @Named("BASE_URL")
     fun provideBaseUrl(): String = BuildConfig.BASE_URL
 
     @Provides
     @Singleton
+    @Named("BEARER_TOKEN")
     fun provideBearerToken(): String = BuildConfig.BEARER_TOKEN
 
     @Provides
@@ -61,4 +66,11 @@ object NetworkModule {
             }
         }
     }
+
+    @Provides
+    @Singleton
+    fun provideHomeRepository(
+        mainRemoteSource: MainRemoteSource
+    ): IMovieRepository = MovieRepositoryImpl(mainRemoteSource)
+
 }

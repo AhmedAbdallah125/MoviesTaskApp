@@ -31,7 +31,7 @@ android {
             buildConfigField(
                 "String",
                 "BEARER_TOKEN",
-                "\"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZTNjOTU1MWRlM2NhMTZhMTAwZTkwMmExNjVhODg5NyIsIm5iZiI6MTcyNjQ3MjI1My42NTEsInN1YiI6IjY2ZTdlMDNkOWRmYmJkZjBlNmNmZTU3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cFz_RszqH2MZjkx2ur8IgIH5KLcPm8OLoO0nakE613Q\"\n\""
+                "\"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZTNjOTU1MWRlM2NhMTZhMTAwZTkwMmExNjVhODg5NyIsIm5iZiI6MTcyNjQ3MjI1My42NTEsInN1YiI6IjY2ZTdlMDNkOWRmYmJkZjBlNmNmZTU3ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cFz_RszqH2MZjkx2ur8IgIH5KLcPm8OLoO0nakE613Q\""
             )
         }
         release {
@@ -53,6 +53,10 @@ android {
         buildConfig = true
         compose = true
     }
+    hilt {
+        enableAggregatingTask = false
+    }
+
 }
 
 dependencies {
@@ -88,6 +92,9 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging.compose)
+
+    implementation(libs.lottie.compose)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

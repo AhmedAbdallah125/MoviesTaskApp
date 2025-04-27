@@ -22,6 +22,8 @@ hiltAndroid = "2.51.1"
 devtoolKspVersion = "2.0.21-1.0.27"
 pagingRuntime = "3.3.6"
 coilCompose = "2.7.0"
+lottieCompose = "4.0.0"
+
 
 
 
@@ -56,6 +58,7 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "pagingRuntime" }
 androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "pagingRuntime" }
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

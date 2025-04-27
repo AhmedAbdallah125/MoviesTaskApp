@@ -3,14 +3,14 @@ package com.ahmed.abdallah.moviestaskapp.data.remote
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.ahmed.abdallah.moviestaskapp.base.Result
-import com.ahmed.abdallah.moviestaskapp.data.model.response.Movie
-import com.ahmed.abdallah.moviestaskapp.data.model.response.MoviesResponse
+import com.ahmed.abdallah.moviestaskapp.data.model.response.KeyWord
+import com.ahmed.abdallah.moviestaskapp.data.model.response.KeyWordResponse
 
-class MoviesDataSource(
-    private val apiCall: suspend (page: Int) -> Result<MoviesResponse>
-) : PagingSource<Int, Movie>() {
+class KeywordDataSource(
+    private val apiCall: suspend (page: Int) -> Result<KeyWordResponse>
+) : PagingSource<Int, KeyWord>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, KeyWord> {
         return try {
             val currentPage = params.key ?: 1
             when (val response = apiCall(currentPage)) {
@@ -34,7 +34,7 @@ class MoviesDataSource(
         }
     }
 
-    override fun getRefreshKey(state: PagingState<Int, Movie>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, KeyWord>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
